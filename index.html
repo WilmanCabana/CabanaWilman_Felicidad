@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival de la Felicidad - Galería Interactiva</title>
+    <style>
+        .multi-angle-gallery {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-main-image {
+            width: 100%;
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .angle-selector {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .angle-option {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            background: white;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .angle-option:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .angle-option.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .angle-thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Ejemplo de galería múltiple para la apertura -->
+    <section class="multi-angle-gallery">
+        <h3>Apertura del Festival - Diferentes Perspectivas</h3>
+        
+        <!-- Imagen principal que cambia -->
+        <div class="gallery-main-image" id="mainImage">
+            Vista principal del escenario durante la apertura
+        </div>
+
+        <!-- Selector de ángulos -->
+        <div class="angle-selector">
+            <button class="angle-option active" onclick="changeAngle('stage', this)">Vista Escenario</button>
+            <button class="angle-option" onclick="changeAngle('audience', this)">Vista Público</button>
+            <button class="angle-option" onclick="changeAngle('speakers', this)">Panel de Ponentes</button>
+            <button class="angle-option" onclick="changeAngle('closeup', this)">Primer Plano</button>
+        </div>
+
+        <!-- Miniaturas -->
+        <div class="angle-thumbnails">
+            <div class="thumbnail active" onclick="changeAngle('stage', this)">
+                Escenario
+            </div>
+            <div class="thumbnail" onclick="changeAngle('audience', this)">
+                Público
+            </div>
+            <div class="thumbnail" onclick="changeAngle('speakers', this)">
+                Ponentes
+            </div>
+            <div class="thumbnail" onclick="changeAngle('closeup', this)">
+                Detalle
+            </div>
+        </div>
+
+        <p class="gallery-description" id="angleDescription">
+            Vista general del escenario principal durante las palabras de apertura del Vicerrector Jorge Caro y el profesor Samuel Prieto.
+        </p>
+    </section>
+
+    <!-- Segundo ejemplo para el grupo folklórico -->
+    <section class="multi-angle-gallery">
+        <h3>Presentación del Grupo Folklórico - Múltiples Momentos</h3>
+        
+        <div class="gallery-main-image" id="mainImage2">
+            Grupo folklórico tocando instrumentos tradicionales
+        </div>
+
+        <div class="angle-selector">
+            <button class="angle-option active" onclick="changeFolkloreAngle('instruments', this, 'mainImage2', 'folkDescription')">Instrumentos</button>
+            <button class="angle-option" onclick="changeFolkloreAngle('dance', this, 'mainImage2', 'folkDescription')">Danza Grupal</button>
+            <button class="angle-option" onclick="changeFolkloreAngle('public', this, 'mainImage2', 'folkDescription')">Público Bailando</button>
+            <button class="angle-option" onclick="changeFolkloreAngle('solo', this, 'mainImage2', 'folkDescription')">Solista</button>
+        </div>
+
+        <p class="gallery-description" id="folkDescription">
+            El grupo folklórico explicando las diferencias entre instrumentos tradicionales y sus orígenes culturales.
+        </p>
+    </section>
+
+    <script>
+        // Datos para las diferentes vistas de la apertura
+        const apertureAngles = {
+            'stage': {
+                image: 'Vista principal del escenario durante la apertura',
+                description: 'Vista general del escenario principal durante las palabras de apertura del Vicerrector Jorge Caro y el profesor Samuel Prieto.'
+            },
+            'audience': {
+                image: 'Público atendiendo las palabras de apertura',
+                description: 'Los asistentes escuchando atentamente las palabras de bienvenida en el auditorio principal.'
+            },
+            'speakers': {
+                image: 'Panel completo de ponentes en el escenario',
+                description: 'Vista cercana del Vicerrector y el profesor Samuel Prieto interactuando con el público.'
+            },
+            'closeup': {
+                image: 'Primer plano del profesor Samuel explicando',
+                description: 'Momento específico donde el profesor Samuel detallaba la metodología del evento.'
+            }
+        };
+
+        // Datos para el grupo folklórico
+        const folkloreAngles = {
+            'instruments': {
+                image: 'Grupo folklórico tocando instrumentos tradicionales',
+                description: 'El grupo folklórico explicando las diferencias entre instrumentos tradicionales y sus orígenes culturales.'
+            },
+            'dance': {
+                image: 'Coreografía grupal del conjunto folklórico',
+                description: 'Los integrantes del grupo ejecutando una danza tradicional en perfecta sincronía.'
+            },
+            'public': {
+                image: 'Asistentes bailando con el grupo folklórico',
+                description: 'Momento interactivo donde el público se unió a la presentación bailando junto a los artistas.'
+            },
+            'solo': {
+                image: 'Solista ejecutando un instrumento principal',
+                description: 'Primer plano de un músico solista demostrando la técnica de un instrumento específico.'
+            }
+        };
+
+        function changeAngle(angle, element, mainImageId = 'mainImage', descriptionId = 'angleDescription') {
+            // Actualizar botones activos
+            const buttons = element.parentElement.querySelectorAll('.angle-option');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            // Actualizar miniaturas activas
+            const thumbnails = element.parentElement.nextElementSibling.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[Array.from(buttons).indexOf(element)].classList.add('active');
+
+            // Cambiar contenido
+            const mainImage = document.getElementById(mainImageId);
+            const description = document.getElementById(descriptionId);
+            
+            mainImage.textContent = apertureAngles[angle].image;
+            description.textContent = apertureAngles[angle].description;
+        }
+
+        function changeFolkloreAngle(angle, element, mainImageId, descriptionId) {
+            // Actualizar botones activos
+            const buttons = element.parentElement.querySelectorAll('.angle-option');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            // Cambiar contenido
+            const mainImage = document.getElementById(mainImageId);
+            const description = document.getElementById(descriptionId);
+            
+            mainImage.textContent = folkloreAngles[angle].image;
+            description.textContent = folkloreAngles[angle].description;
+        }
+    </script>
+</body>
+</html>
