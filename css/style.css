@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.multi-angle-gallery {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.multi-angle-gallery h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 400px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+    border: 3px solid #e9ecef;
+}
+
+.angle-selector {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.angle-option {
+    padding: 12px 25px;
+    border: 2px solid #667eea;
+    border-radius: 25px;
+    background: white;
+    color: #667eea;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.angle-option:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.angle-option.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.gallery-description {
+    margin-top: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-main-image {
+        height: 300px;
+    }
+    
+    .angle-option {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+    
+    .multi-angle-gallery {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-main-image {
+        height: 250px;
+    }
+    
+    .angle-selector {
+        gap: 10px;
+    }
+    
+    .angle-option {
+        padding: 8px 16px;
+        font-size: 0.75em;
+    }
+}
