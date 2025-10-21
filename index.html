@@ -1,71 +1,99 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñando la universidad de la Felicidad</title>
 
-        <title>Diseñando la universidad de la Felicidad</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <script src="./js/slide.js"></script>
+    <header>
+        <h1>Festival la Universidad de la Felicidad</h1>
+        <p class="subtitle">Una experiencia transformadora que conecta tecnología, bienestar y comunidad</p>
+    </header>
+    <main>
+        <section class="gallery">
+            <h3>Apertura del Festival</h3>
+            <div class="gallery-main-image" id="mainImageApertura">Presiona un número</div>
+            <div class="angle-selector">
+                <button class="angle-option active" onclick="changeAngle('apertura', 'vicerrector', this)">1</button>
+                <button class="angle-option" onclick="changeAngle('apertura', 'organizador', this)">2</button>
+                <button class="angle-option" onclick="changeAngle('apertura', 'himno', this)">3</button>
+            </div>
+            <p>Palabras de bienvenida del Vicerrector Jorge Caro y el profesor Samuel Prieto, estableciendo el tono para un día de reflexión sobre felicidad y tecnología.</p>
+            <a href="https://drive.google.com/file/d/1DsOk4EkOyjW-GDD0iY_cramb07ZXTEOV/view?usp=drivesdk" target="_blank">Profesor Samuel bailando</a>
+        </section>
 
-        <link rel="stylesheet" href="/ccs/style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Festival la Universidad de la Felicidad</h1>
-            <p class="subtitle">Una experiencia transformadora que conecta tecnología, bienestar y comunidad</p>
-        </header>
-        <main>
-            <section class="gallery">
-                <h3>Apertura del Festival</h3>
-                <div class="gallery-main-image" id="mainImageApertura"></div>
-                <div class="angle-selector">
-                    <button class="angle-option active" onclick="changeAngle('apertura', 'vicerrector', this)">1</button>
-                    <button class="angle-option" onclick="changeAngle('apertura', 'organizador', this)">2</button>
-                    <button class="angle-option" onclick="changeAngle('apertura', 'himno', this)">3</button>
+        <section class="gallery">
+            <h3>Música con IA para Niños</h3>
+            <div class="gallery-main-image" id="mainImageMusica">Presiona un número</div>
+            <div class="angle-selector">
+                <button class="angle-option active" onclick="changeAngle('musica', 'm1', this)">1</button>
+                <button class="angle-option" onclick="changeAngle('musica', 'm2', this)">2</button>
+                <button class="angle-option" onclick="changeAngle('musica', 'm3', this)">3</button>
+                <button class="angle-option" onclick="changeAngle('musica', 'm4', this)">4</button>
+                <button class="angle-option" onclick="changeAngle('musica', 'm5', this)">5</button>
+            </div>
+            <p>Alexander Taborda presentó su proyecto de inteligencia artificial musical para crear vínculos emocionales con niños de 0-2 años.</p>
+        </section>
+
+        <section class="gallery">
+            <h3>Presentación Cultural</h3>
+            <div class="gallery-main-image" id="mainImageCultural">Presiona un número</div>
+            <div class="angle-selector">
+                <button class="angle-option active" onclick="changeAngle('cultural', 'c1', this)">1</button>
+                <button class="angle-option" onclick="changeAngle('cultural', 'c2', this)">2</button>
+                <button class="angle-option" onclick="changeAngle('cultural', 'c3', this)">3</button>
+            </div>
+            <p>El grupo folklórico universitario compartió instrumentos y danzas tradicionales, mostrando la diversidad cultural como fuente de felicidad colectiva.</p>
+        </section>
+
+        <section class="gallery">
+            <h3>Galería Digital Universitaria</h3>
+            <div class="gallery-main-image" id="mainImageGaleria">Presiona un número</div>
+            <div class="angle-selector">
+                <button class="angle-option active" onclick="changeAngle('galeria', 'g1', this)">1</button>
+            </div>
+            <p>Juan José, estudiante de ingeniería de sistemas, presentó su plataforma web para preservar la memoria cultural de los eventos universitarios.</p>
+            <a href="https://agreeable-dune-08a9c7510.2.azurestaticapps.net/eventos" target="_blank">Presionar para ver</a>
+        </section>
+
+        <!-- Reflexión Personal -->
+        <section class="reflection">
+            <h2>Reflexión</h2>
+            <p>El Festival la Universidad de la Felicidad me mostró cómo la tecnología y el bienestar pueden integrarse. Como desarrolladores web, tenemos la responsabilidad de crear experiencias digitales que no solo sean funcionales, sino que también promuevan la felicidad y el bienestar de los usuarios.</p>
+            <p>Conceptos como el diseño centrado en el usuario, la sostenibilidad tecnológica y la ética en el desarrollo de software deben ir de la mano con la creatividad y la empatía. La ponencia sobre música con IA para niños me hizo pensar en cómo cada línea de código puede tener una "banda sonora" emocional que conecte mejor con las personas.</p>
+            <p>En la vida universitaria, esta experiencia refuerza la importancia de espacios interdisciplinarios donde la ingeniería dialogue con las humanidades, la psicología y el arte. La felicidad, es tanto un estado mental individual como una construcción colectiva que podemos fomentar a través de nuestras creaciones tecnológicas.</p>
+        </section>
+
+        <!-- Evidencia de Asistencia -->
+        <section class="evidence">
+            <h2>Evidencia de Asistencia</h2>
+            <div class="evidence-info">
+                <p><strong>Nombre:</strong>Wilman Alfonso Cabana Camargo</p>
+                <p><strong>Fecha:</strong> 17/10/2025</p>
+                <p><strong>Hora:</strong> 8:00-12:00pm</p>
+            </div>
+            
+            <div class="evidence-grid">
+                <div class="evidence-item">
+                    <img id="presencia-img" src="./assets/img/presenteFestival.jpeg" alt="presente en el festival">
+                    <p>Presencia en el Festival</p>
                 </div>
-                <p>Palabras de bienvenida del Vicerrector Jorge Caro y el profesor Samuel Prieto, estableciendo el tono para un día de reflexión sobre felicidad y tecnología.</p>
-            </section>
-
-            <section class="gallery">
-                <h3>Música con IA para Niños</h3>
-                <div class="gallery-main-image" id="mainImageMusica"></div>
-                <div class="angle-selector">
-                    <button class="angle-option active" onclick="changeAngle('musica', 'm1', this)">1</button>
-                    <button class="angle-option" onclick="changeAngle('musica', 'm2', this)">2</button>
-                    <button class="angle-option" onclick="changeAngle('musica', 'm3', this)">3</button>
-                    <button class="angle-option" onclick="changeAngle('musica', 'm4', this)">4</button>
-                    <button class="angle-option" onclick="changeAngle('musica', 'm5', this)">5</button>
+                <div class="evidence-item">
+                    <img id="obsequio-img" src="./assets/img/camisaObsequio.jpeg" alt="camisa de obsequio">
+                    <p>Camisa de obsequio por llegar temprano xd</p>
                 </div>
-                <p>Alexander Taborda presentó su proyecto de inteligencia artificial musical para crear vínculos emocionales con niños de 0-2 años.</p>
-            </section>
+            </div>
+        </section>
 
-            <section class="gallery">
-                <h3>Presentación Cultural</h3>
-                <div class="gallery-main-image" id="mainImageCultural"></div>
-                <div class="angle-selector">
-                    <button class="angle-option active" onclick="changeAngle('cultural', 'c1', this)">1</button>
-                    <button class="angle-option" onclick="changeAngle('cultural', 'c2', this)">2</button>
-                    <button class="angle-option" onclick="changeAngle('cultural', 'c3', this)">3</button>
-                </div>
-                <p>El grupo folklórico universitario compartió instrumentos y danzas tradicionales, mostrando la diversidad cultural como fuente de felicidad colectiva.</p>
-            </section>
+    </main>
 
-            <section class="gallery">
-                <h3>Galería Digital Universitaria</h3>
-                <div class="gallery-main-image" id="mainImageGaleria"></div>
-                <div class="angle-selector">
-                    <button class="angle-option active" onclick="changeAngle('galeria', 'g1', this)">1</button>
-                </div>
-                <p>Juan José, estudiante de ingeniería de sistemas, presentó su plataforma web para preservar la memoria cultural de los eventos universitarios.</p>
-            </section>
-
-
-
-
-        </main>
-
-        <footer>
-            <p>Festival la Universidad de la Felicidad - Universidad del Magdalena - 2025</p>
-        </footer>
-        <script src="./js/slide.js"></script>
-    </body>
+    <footer>
+        <p>Festival la Universidad de la Felicidad - Universidad del Magdalena - 2025</p>
+    </footer>
+    
+</body>
 </html>

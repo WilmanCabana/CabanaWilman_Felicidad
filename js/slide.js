@@ -85,6 +85,7 @@ function changeAngle(galleryType, angle, element) {
     const imageData = galleryData[galleryType][angle];
     
     // Aplicar cambios
+    mainImage.style.color = "#ffffff00"
     mainImage.style.backgroundImage = `url('${imageData.image}')`;
     
     // Efecto visual de transición
@@ -94,25 +95,49 @@ function changeAngle(galleryType, angle, element) {
     }, 150);
 }
 
-// Inicializar galerías con la primera imagen
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar galería 'apertura'
+// Inicializar galerías cuando la página carga
+function initializeGalleries() {
+    // Inicializar galería 'apertura' con la primera imagen
     const aperturaInitial = apertureAngles.stage;
     const mainImageApertura = document.getElementById('mainImageApertura');
-    mainImageApertura.style.backgroundImage = `url('${aperturaInitial.image}')`;
-
-    // Inicializar galería 'musica'
+    const descriptionApertura = document.getElementById('descriptionApertura');
+    
+    if (mainImageApertura) {
+        mainImageApertura.style.backgroundImage = url('${aperturaInitial.image}');
+        descriptionApertura.textContent = aperturaInitial.description;
+    }
+    
+    // Inicializar galería 'musica' con la primera imagen
     const musicaInitial = musicaAngles.instruments;
     const mainImageMusica = document.getElementById('mainImageMusica');
-    mainImageMusica.style.backgroundImage = `url('${musicaInitial.image}')`;
     
-    // Inicializar galería 'cultural'
+    if (mainImageMusica) {
+        mainImageMusica.style.backgroundImage = url('${musicaInitial.image}');
+    }
+
+    // Inicializar galería 'cultural' con la primera imagen
     const culturalInitial = culturalAngles.instruments;
     const mainImageCultural = document.getElementById('mainImageCultural');
-    mainImageCultural.style.backgroundImage = `url('${culturalInitial.image}')`;
+    
+    if (mainImageCultural) {
+        mainImageCultural.style.backgroundImage = url('${culturalInitial.image}');
+    }
 
-    // Inicializar galería 'galeria'
+    // Inicializar galería 'galeria' con la primera imagen
     const galeriaInitial = galeriaAngles.instruments;
     const mainImageGaleria = document.getElementById('mainImageGaleria');
-    mainImageGaleria.style.backgroundImage = `url('${galeriaInitial.image}')`;
+    
+    if (mainImageGaleria) {
+        mainImageGaleria.style.backgroundImage = url('${galeriaInitial.image}');
+    }
+}
+
+// Ejecutar la inicialización cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initializeGalleries();
+});
+
+// También ejecutar cuando la ventana se cargue completamente
+window.addEventListener('load', function() {
+    initializeGalleries();
 });

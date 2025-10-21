@@ -9,8 +9,46 @@ body {
     line-height: 1.6;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 40px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #764ba2;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.gallery{
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+a{
+    text-decoration: none;
+}
+
+h3{
+    padding: 6px;
 }
 
 .multi-angle-gallery {
@@ -42,6 +80,10 @@ body {
     background-repeat: no-repeat;
     transition: all 0.3s ease;
     border: 3px solid #e9ecef;
+}
+
+.gallery-main-image{
+    transform: translateY(-5px);
 }
 
 .angle-selector {
@@ -84,6 +126,79 @@ body {
     padding: 0 10px;
     line-height: 1.5;
 }
+
+#mainImageApertura, #mainImageMusica, #mainImageCultural, #mainImageGaleria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #bebebe;
+}
+
+#obsequio-img {
+    width: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#presencia-img{
+    width: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.reflection {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.reflection h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.evidence {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.evidence-item {
+    text-align: center;
+}
+
+.evidence-photo {
+    width: 100%;
+    height: 200px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #764ba2;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin-top: 40px;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
